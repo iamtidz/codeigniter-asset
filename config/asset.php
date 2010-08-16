@@ -1,4 +1,4 @@
-<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
+<?php defined('BASEPATH') OR exit('No direct script access allowed');
 
 /*
 |--------------------------------------------------------------------------
@@ -12,9 +12,7 @@
 |
 */
 
-// This crazy line means it will use the app path whether its in the web root or not
-// Feel free to change this to something more normal lookin!
-$config['asset_dir'] = parse_url(config_item('base_url'), PHP_URL_PATH).'/';
+$config['asset_dir'] = APPPATH_URI . 'assets/';
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +22,29 @@ $config['asset_dir'] = parse_url(config_item('base_url'), PHP_URL_PATH).'/';
 | URL to your CodeIgniter root. Typically this will be your base URL,
 | WITH a trailing slash:
 |
-|	http://example.com/assets/
+|	/assets/
 |
 */
 
-// Right now its pointing to the same place as the base_url.
-$config['asset_url'] = config_item('base_url').'assets/';
+$config['asset_url'] = config_item('base_url').APPPATH . 'assets/';
+
+/*
+|--------------------------------------------------------------------------
+| Theme Asset Directory
+|--------------------------------------------------------------------------
+|
+*/
+
+$config['theme_asset_dir'] = APPPATH_URI . 'themes/';
+
+/*
+|--------------------------------------------------------------------------
+| Theme Asset URL
+|--------------------------------------------------------------------------
+|
+*/
+
+$config['theme_asset_url'] = config_item('base_url').APPPATH.'themes/';
 
 /*
 |--------------------------------------------------------------------------
@@ -38,13 +53,9 @@ $config['asset_url'] = config_item('base_url').'assets/';
 |
 | Names for the img, js and css folders. Can be renamed to anything
 |
-| asset_img_dir = 'img';
-| asset_js_dir = 'js';
-| asset_css_dir = 'css';
+|	/assets/
 |
 */
 $config['asset_img_dir'] = 'img';
 $config['asset_js_dir'] = 'js';
 $config['asset_css_dir'] = 'css';
-
-?>
