@@ -283,7 +283,7 @@ class Asset
 				}
 			}
 
-			$asset_location .= $asset_type.'/'.$asset_name;
+			$asset_location .= ($asset_type == '' ? '' : $asset_type.'/') . $asset_name;
 		}
 
 		return $asset_location;
