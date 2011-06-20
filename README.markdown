@@ -15,7 +15,7 @@ Configuration
 
 $config['asset_dir'] = Defaults to application directory. Set to folder in which assets/ sits.
 
-$config['asset_url'] = Will normally be your base_url, but could be in a differentl ocation. Full http URL to the asset directories parent.
+$config['asset_url'] = Will normally be your base_url, but could be in a different location. Full http URL to the asset directories parent.
 
 Usage
 -----
