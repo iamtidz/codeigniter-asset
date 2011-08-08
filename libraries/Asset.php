@@ -33,6 +33,9 @@ class Asset {
 		$this->_ci = &get_instance();
 
 		$this->_ci->load->config('asset');
+                
+                // FIXED: Error base_url()
+                $this->_ci->load->helper('url');
 	}
 
 	// ------------------------------------------------------------------------
@@ -263,8 +266,8 @@ class Asset {
 				{
 					if (is_dir($path . $module_name))
 					{
-						// TODO: Fix this fucking mess
-						$asset_location = base_url() . $path . $module_name . '/';
+						// FIXED: Fix cannot find assets directory in Modules
+						$asset_location = base_url() . $path . $module_name . '/assets/';
 						break;
 					}
 				}
